@@ -1,5 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/quyixiang/Desktop/Semester_1/bios-611-project'
-make: Nothing to be done for `SHELL'.
-make: Leaving directory `/Users/quyixiang/Desktop/Semester_1/bios-611-project'
- 
