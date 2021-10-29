@@ -4,7 +4,7 @@ import numpy as np
 import math
 from numpy import random
 from scipy.stats import norm
-import matplotlib.pylab as plt
+# import matplotlib.pylab as plt
 import pandas as pd
 
 # %%
@@ -182,16 +182,16 @@ def extract_value(ori_delta_t, target_delta_t, data):
 
 
 # %%
-def plot_output(simulation_data, subject_num, time_points_num, microgroup_num):
-    plt.figure()
-    plt.figure(figsize=(microgroup_num * 4, 2.5))
+# def plot_output(simulation_data, subject_num, time_points_num, microgroup_num):
+#     plt.figure()
+#     plt.figure(figsize=(microgroup_num * 4, 2.5))
 
-    for z in range(microgroup_num):
-        plt.subplot(1, microgroup_num, z + 1)
-        for xx in range(subject_num):
-            plt.plot(range(time_points_num), simulation_data[xx, :time_points_num, z])
-        plt.text(0.55, 0.85, "Microbiome %d" % (z + 1), transform=plt.gca().transAxes)
-    plt.show()
+#     for z in range(microgroup_num):
+#         plt.subplot(1, microgroup_num, z + 1)
+#         for xx in range(subject_num):
+#             plt.plot(range(time_points_num), simulation_data[xx, :time_points_num, z])
+#         plt.text(0.55, 0.85, "Microbiome %d" % (z + 1), transform=plt.gca().transAxes)
+#     plt.show()
 
 
 # %%
@@ -564,23 +564,23 @@ mu_matrix = multi_time_trend_generator_without_time_variation(
 # plot_output(time_series_without_zero_5, 30, 30, 1)
 
 # %%
-def plot_output_all(simulation_data_list, subject_num, time_points_num, microgroup_num):
-    plt.figure()
-    plt.figure(figsize=(5, 12.5))
+# def plot_output_all(simulation_data_list, subject_num, time_points_num, microgroup_num):
+#     plt.figure()
+#     plt.figure(figsize=(5, 12.5))
 
-    cluster_num = len(simulation_data_list)
+#     cluster_num = len(simulation_data_list)
 
-    i = 0
-    for time_series in simulation_data_list:
-        i += 1
-        for z in range(microgroup_num):
-            plt.subplot(cluster_num, microgroup_num, (i - 1) * microgroup_num + z + 1)
-            for xx in range(subject_num):
-                plt.plot(range(time_points_num), time_series[xx, :time_points_num, z])
-            plt.text(
-                0.55, 0.85, "Microbiome %d" % (z + 1), transform=plt.gca().transAxes
-            )
-    plt.show()
+#     i = 0
+#     for time_series in simulation_data_list:
+#         i += 1
+#         for z in range(microgroup_num):
+#             plt.subplot(cluster_num, microgroup_num, (i - 1) * microgroup_num + z + 1)
+#             for xx in range(subject_num):
+#                 plt.plot(range(time_points_num), time_series[xx, :time_points_num, z])
+#             plt.text(
+#                 0.55, 0.85, "Microbiome %d" % (z + 1), transform=plt.gca().transAxes
+#             )
+#     plt.show()
 
 
 # %%
