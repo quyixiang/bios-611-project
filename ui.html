@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script src="shared/jquery.js" type="text/javascript"></script>
+    <script src="shared/shiny.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="shared/shiny.css" />
+  </head>
+
+  <body>
+    <h1 align="center">
+      Interpolation results for different microbiome species
+    </h1>
+    <h3>
+      Instructions:<br />
+      This Rshiny APP shows the interpolation results using certain deep
+      learning methods. The information shown in solid points are used to train
+      the model. However, the rest information was not used for the training
+      process. The lines are the time series interpolated using the deep
+      learning method.<br />
+      The data belongs to multivariate time series datasets. For different
+      subjects, there are 5 different microbiome species following different
+      time trends. We can change the microbiome species to show it. And we can
+      select different subjects to see the microbiome time series in different
+      people.
+    </h3>
+    <p align="center">
+      <label>Microbiome species:</label><br />
+      <select name="microbiome_species">
+        <option value="0">Microbiome 0</option>
+        <option value="1">Microbiome 1</option>
+        <option value="2">Microbiome 2</option>
+        <option value="3">Microbiome 3</option>
+        <option value="4">Microbiome 4</option>
+      </select>
+    </p>
+
+    <p align="center">
+      <label>Subject index: Please select from 0 to 999</label><br />
+      <input type="number" name="subject_1" value="100" min="0" max="999" />
+      <input type="number" name="subject_2" value="200" min="0" max="999" />
+      <input type="number" name="subject_3" value="300" min="0" max="999" />
+      <input type="number" name="subject_4" value="400" min="0" max="999" />
+      <input type="number" name="subject_5" value="500" min="0" max="999" />
+    </p>
+
+    <h3 align="center">Plot of B-Spline interpolated data:</h3>
+    <div
+      align="center"
+      id="bsPlot"
+      class="shiny-plot-output"
+      style="width: 80%; height: 300px"
+    ></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3 align="center">Plot of DeepLearning interpolated data:</h3>
+    <div
+      align="center"
+      id="dlPlot"
+      class="shiny-plot-output"
+      style="width: 80%; height: 300px"
+    ></div>
+  </body>
+</html>

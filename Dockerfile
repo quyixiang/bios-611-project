@@ -26,10 +26,7 @@ RUN R -e "install.packages(\"tibble\")"
 RUN R -e "install.packages(\"tidyr\")"
 RUN R -e "install.packages(\"dplyr\")"
 RUN R -e "install.packages(\"mgcv\")"
-RUN R -e "install.packages(\"gratia\")"
 RUN R -e "install.packages(\"patchwork\")"
-RUN R -e "remotes::install_github(\"clauswilke/colorblindr\")"
-RUN R -e "remotes::install_github(\"clauswilke/relayer\")"
 RUN pip3 install numpy pandas sklearn
 RUN apt update -y && apt install -y python3-pip
 RUN pip3 install jupyter jupyterlab

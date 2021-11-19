@@ -18,7 +18,7 @@ docker image build -t 611-hwk .
 
 
 ```bash
-docker run -p 8765:8765 -v $(pwd):/home/rstudio -it 611-hwk /bin/bash
+docker run -v $(pwd):/home/rstudio -e PASSWORD=yixiang -p 8787:8787 -t 611-hwk
 ```
 
 And we can use the following command to clean the previous data.

@@ -1,2 +1,8 @@
 .DS_Store
 .vscode/
+.Rhistory
+split_data/
+.bash_history
+.config/
+.local/
+reference/
