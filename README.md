@@ -6,7 +6,7 @@ This a project created by **Yixiang Qu** for BIOS 611 at UNC, Chapel Hill.
 
 It is always an important topic to find suitable methods for spline in biostatistics. In order to compare different spline methods. I simulated multivariate time series datasets with missing data and use different methods to interpolate the missing data, one is from the deep learning method, and the other is the B-spline model. I use the `train` data as the input data and use `test` to evaluate the interpolation accuracy.
 
-<img src="figure/B_spline.pdf" alt="image-20211028222919185" style="zoom:25%;" />
+<img src="picture/B_spline.jpg" alt="image-20211028222919185" style="zoom:25%;" />
 
 ## Generate the report
 
