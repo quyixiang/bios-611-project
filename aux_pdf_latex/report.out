@@ -1,0 +1,6 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The complicated data structure of microbiome time series data}{}% 2
+\BOOKMARK [1][-]{section.3}{Interpolation results of different spline methods}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Deep learning interpolation}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{B spline interpolation}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Comparsion of the different interpolation methods}{}% 6

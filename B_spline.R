@@ -3,7 +3,6 @@ library("tibble")
 library("tidyr")
 library("dplyr")
 library("mgcv")
-library("patchwork")
 
 file_list <- list.files("split_data")
 
@@ -39,11 +38,4 @@ for (i in (1:length(file_list))) {
     }
 }
 
-write.csv(all_data, "real_data/all_interpolation.csv", row.names=FALSE)
-
-
-
-
-
-
-
+write.csv(all_data, "real_data/all_interpolation.csv", row.names = FALSE)

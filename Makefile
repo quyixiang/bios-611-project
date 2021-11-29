@@ -23,4 +23,4 @@ simulated_data/simulation_all_data.csv simulated_data/simulation_random_dropped.
 	python3 simulator.py
 
 shiny: app.R real_data/all_interpolation.csv
-	R -e "shiny::runApp()"
+	Rscript -e 'library(methods); shiny::runApp("app.R", launch.browser = TRUE)'

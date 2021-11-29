@@ -1,35 +1,35 @@
 library(ggplot2)
 library(RColorBrewer)
 mytheme <- theme(
-  plot.title = element_text(
-    face = "bold.italic", hjust = 0.5,
-    size = "18", color = "brown"
-  ),
-  axis.title = element_text(
-    face = "bold.italic", size = 12,
-    color = "brown"
-  ),
-  axis.text = element_text(
-    face = "bold", size = 11,
-    color = "black"
-  ),
-  panel.background = element_rect(
-    fill = "white",
-    color = "black"
-  ),
-  panel.grid.major.y = element_line(
-    color = "grey",
-    linetype = 2
-  ),
-  panel.grid.minor.y = element_line(
-    color = "grey",
-    linetype = 2
-  ),
-  panel.grid.minor.x = element_blank()
+    plot.title = element_text(
+        face = "bold.italic", hjust = 0.5,
+        size = "18", color = "brown"
+    ),
+    axis.title = element_text(
+        face = "bold.italic", size = 12,
+        color = "brown"
+    ),
+    axis.text = element_text(
+        face = "bold", size = 11,
+        color = "black"
+    ),
+    panel.background = element_rect(
+        fill = "white",
+        color = "black"
+    ),
+    panel.grid.major.y = element_line(
+        color = "grey",
+        linetype = 2
+    ),
+    panel.grid.minor.y = element_line(
+        color = "grey",
+        linetype = 2
+    ),
+    panel.grid.minor.x = element_blank()
 )
 
 scale_colour_discrete <- function(...) {
-  scale_colour_manual(..., values = brewer.pal(n = 8, name = "Dark2"))
+    scale_colour_manual(..., values = brewer.pal(n = 8, name = "Dark2"))
 }
 df <- read.csv("real_data/all_interpolation.csv")
 subject_list <- sample(max(df$subject_ID), 5)
