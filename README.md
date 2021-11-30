@@ -24,7 +24,7 @@ And we can run docker container using the following command.
 docker run -v $(pwd):/home/rstudio -e PASSWORD=yixiang -p 8787:8787 -t 611-hwk
 ```
 
-### Using makefile to generate all the stuff
+### Using Makefile to generate all the stuff
 
 And we can use the following command to clean the previous data.
 
@@ -39,7 +39,7 @@ make figure/B_spline.pdf
 make figure/DL_spline.pdf
 ```
 
-### Using shiny to see the results interactively
+### Using Rshiny to see the results interactively
 
 In order to run shiny, using the following command.
 
@@ -49,7 +49,7 @@ make shiny
 
 You can use the botton circled in red to choose different microbiome species, and you can use the bottons circled in blue to choose different subjects.
 
-<img src="picture/shiny.png" alt="image-20211129161438136" style="zoom:50%;" />
+<img src="picture/shiny.png" alt="image-20211129161438136" style="zoom:25%;" />
 
 ## The final report
 

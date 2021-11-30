@@ -4,7 +4,6 @@ SHELL: /bin/bash
 clean:
 	rm -f simulated_data/*
 	rm -f figure/*
-	rm -f aux_pdf_latex/*
 
 figure/B_spline.pdf figure/DL_spline.pdf: plot.R real_data/all_interpolation.csv
 	Rscript plot.R
