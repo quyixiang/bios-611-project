@@ -28,7 +28,7 @@ dl_no_mask_diff = list(abs(real_data_without_mask - dl_interpolation))
 bs_diff = bs_mask_diff + bs_no_mask_diff
 dl_diff = dl_mask_diff + dl_no_mask_diff
 # %%
-np.mean(bs_diff)
+MD_bs = np.mean(bs_diff)
 # %%
-np.mean(dl_diff)
+MD_dl = np.mean(dl_diff)
 # %%
