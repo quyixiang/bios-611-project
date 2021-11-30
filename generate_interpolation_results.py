@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-model_name = "multivariate_simulation_drop_30"
-data_path = "real_data/{}_results.npy".format(model_name)
+model_name = "multivariate_simulation"
+data_path = "real_data/{}.npy".format(model_name)
 summary_dict_path = "real_data/{}_summarydict.npy".format(model_name)
 data_dict = np.load(data_path, allow_pickle=True).item()
 

@@ -14,7 +14,6 @@ B_spline <- function(df, species_ID, subject_ID) {
         data = gp_data
     )
     new_data <- tibble(x = unname(df$time))
-    crit <- qnorm((1 - 0.89) / 2, lower.tail = FALSE)
     p_bs <- as_tibble(predict(m_bs_default, new_data))
     real_data <- df %>%
         replace_na(list(real_data_unavailable = 0, real_data_undetectable = 0)) %>%

@@ -6,7 +6,6 @@ from scipy.stats import norm
 import pandas as pd
 from scipy.special import expit
 
-
 def ZILN(n, m, t, p, seed):
     sig2 = math.log(t + 1)
     mm = np.log(m) - sig2 / 2
@@ -21,7 +20,6 @@ def ZILN(n, m, t, p, seed):
 def brown(dt):
     dW = norm.rvs(scale=math.sqrt(dt))
     return dW
-
 
 
 def CorSig_gen(n_feature, pi_s, pi_b, seed):
@@ -56,7 +54,6 @@ def CorSig_gen(n_feature, pi_s, pi_b, seed):
 
 seed = 10
 sig_mat = CorSig_gen(5, 0.7, 0.4, seed)
-
 def CorMat_gen(n_feature, mean, sd, sig_mat, seed):
     np.random.seed(seed)
     mat = np.abs(np.random.normal(mean, sd, n_feature ** 2).reshape(n_feature, -1))
@@ -70,7 +67,6 @@ def CorMat_gen(n_feature, mean, sd, sig_mat, seed):
 
 sample_mat = CorMat_gen(5, 0.1, 0.1, sig_mat, seed)
 
-
 def RanMat_gen(n_feature, time_sd, seed):
     np.random.seed(seed)
     mat = np.random.normal(0, time_sd, n_feature ** 2).reshape(n_feature, -1)
@@ -83,14 +79,12 @@ def RanMat_gen(n_feature, time_sd, seed):
 
 
 RanMat_gen(5, 0.0001, seed) + sample_mat
-
 def dX_BS(X, k, sigma, delta_t):
     return k * X * delta_t + sigma * X * brown(delta_t)
 
 
 def dX_OU(X, k, m, sigma, delta_t):
     return -k * (X - m) * delta_t + sigma * brown(delta_t)
-
 
 
 def multi_time_trend_generator_without_time_variation(
@@ -163,7 +157,6 @@ def multi_time_trend_generator_without_time_variation(
     return x
 
 
-
 # extract value and add time variation
 def extract_value(ori_delta_t, target_delta_t, data):
     interval = round(target_delta_t / ori_delta_t)
@@ -194,7 +187,6 @@ def generate_time_series_new_method(mu_matrix, t, p, original_t, target_t, seed)
             )
             out_without_zeros[i, j, :], out[i, j, :] = temp_1, temp_2
     return mu_matrix, time, mu_matrix_simplified, out_without_zeros, out
-
 
 
 # Time series 1
@@ -252,7 +244,6 @@ mu_matrix = multi_time_trend_generator_without_time_variation(
     sig_mat,
     seed,
 )
-
 
 (
     mu_matrix_1,
@@ -528,11 +519,9 @@ mu_matrix = multi_time_trend_generator_without_time_variation(
 
 
 
-
 all_time_series = np.concatenate(
     (time_series_1, time_series_2, time_series_3, time_series_4, time_series_5), axis=0
 )
-
 column_name = (
     ["ID", "Time"]
     + ["Value_" + str(i + 1) for i in range(all_time_series.shape[2])]
@@ -548,7 +537,6 @@ for i in range(all_time_series.shape[0]):
     temp_df = pd.concat([ID, Time, value_df, mask_df], axis=1)
     temp_df.columns = column_name
     final_df = pd.concat([final_df, temp_df], axis=0)
-
 final_mask_df = final_df.loc[:, [a.startswith("Mask") for a in final_df.columns]]
 final_df.index = pd.Series(range(final_df.shape[0]))
 final_df_dropped = pd.DataFrame(columns=column_name)
@@ -561,7 +549,6 @@ for i, row in final_df.iterrows():
     else:
         final_mask_df.iloc[i, :] = -1
 
-
 all_real_time_series = np.concatenate(
     (
         time_series_without_zero_1,
@@ -572,7 +559,6 @@ all_real_time_series = np.concatenate(
     ),
     axis=0,
 )
-
 def zero_rate_generator(all_time_series, gradient, intercept):
     microbiome_mean = []
     for i in range(all_time_series.shape[2]):
@@ -582,7 +568,7 @@ def zero_rate_generator(all_time_series, gradient, intercept):
     
     return p
 
-col_zero_rate = zero_rate_generator(all_real_time_series, -0.3, 5.6)
+col_zero_rate = zero_rate_generator(all_real_time_series, -0.3, 5)
 col_zero_rate
 all_time_series = []
 
@@ -595,7 +581,6 @@ for i in range(all_real_time_series.shape[2]):
     all_time_series.append(temp_data)
 
 all_time_series = np.array(all_time_series).transpose(1,2,0)
-
 column_name = (
     ["ID", "Time"]
     + ["Value_" + str(i + 1) for i in range(all_time_series.shape[2])]
@@ -613,19 +598,17 @@ for i in range(all_time_series.shape[0]):
     final_df = pd.concat(
         [final_df, temp_df], axis=0
     )
-
 final_mask_df = final_df.loc[:, [a.startswith("Mask") for a in final_df.columns]]
 final_df.index = pd.Series(range(final_df.shape[0]))
 final_df_dropped = pd.DataFrame(columns=column_name)
 for i, row in final_df.iterrows():
     # print(i)
     np.random.seed(i)
-    if random.random() > 0.29:
+    if random.random() > 0.13:
         temp_row = row.to_frame().T
         final_df_dropped = pd.concat([final_df_dropped, temp_row], axis=0)
     else:
         final_mask_df.iloc[i, :] = -1
-
 
 column_name = (
     ["ID", "Time"]
@@ -642,7 +625,6 @@ for i in range(all_real_time_series.shape[0]):
     temp_df.columns = column_name
     real_df = pd.concat([real_df, temp_df], axis=0)
 
-
 real_df.loc[:, [a.startswith("Mask") for a in real_df.columns]] = final_mask_df
 real_df.loc[:, [a.startswith("Value") for a in real_df.columns]] = real_df.loc[
     :, [a.startswith("Value") for a in real_df.columns]
@@ -656,5 +638,6 @@ final_df_dropped.loc[
     final_df_dropped.loc[:, [a.startswith("Mask") for a in final_df_dropped.columns]]
     != -2
 )
+
 final_df_dropped.to_csv("simulated_data/simulation_random_dropped.csv", index=False)
 real_df.to_csv("simulated_data/simulation_all_data.csv", index=False)
