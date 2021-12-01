@@ -53,4 +53,4 @@ You can use the botton circled in red to choose different microbiome species, an
 
 ## The final report
 
-The final report is wrote using overleaf, and the source code can be seen in folder `Overleaf`.
+The final report is wrote using overleaf, you can find it in `Overleaf/Final_Report.pdf`, and the source code to generate it can be seen in folder `Overleaf`.
